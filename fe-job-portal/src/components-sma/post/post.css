@@ -55,16 +55,11 @@
 
 .postCenter{
     margin: 10px 0;
+    height: auto;
 }
 
 .postText{
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 10px;
+    white-space: pre-line;
 }
 
 .postText:empty {
@@ -155,4 +150,33 @@
 .buttonTextApply{
   margin-left: 5px;
   line-height: 48px;
+}
+.avatarContainer {
+  width: 40px; /* Kích thước avatar */
+  height: 40px;
+  border-radius: 50%; /* Làm tròn hoàn toàn */
+  background: linear-gradient(135deg, #7effa9, #75ffca, #5fff9c); /* Hiệu ứng gradient */
+  display: flex; /* Căn giữa nội dung */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
+  overflow: hidden; /* Ẩn nội dung vượt ra ngoài */
+  transition: transform 0.3s ease; /* Hiệu ứng hover */
+}
+
+.avatarContainer:hover {
+  transform: scale(1.1); /* Phóng to nhẹ khi hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+}
+
+.avatarIcon {
+  font-size: 20px; /* Kích thước icon */
+  color: #fff; /* Màu icon trắng nổi bật */
+}
+
+.postUsername {
+  margin-left: 16px; /* Khoảng cách giữa avatar và tên */
+  font-size: 18px; /* Kích thước chữ */
+  font-weight: bold; /* Đậm chữ */
+  color: #1c1e21; /* Màu chữ gần giống Facebook */
 }
