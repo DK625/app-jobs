@@ -10,15 +10,14 @@
 }
 
 .topbarLeft {
-  flex: 1;
+  display: flex;
+  padding-left: 20px;
 }
 
-.logo {
-  font-size: 28px;
-  margin-left: 20px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
+.logo img {
+  max-height: 50px; /* Chiều cao tối đa của logo */
+  width: auto; /* Chiều rộng tự động để giữ nguyên tỷ lệ */
+  object-fit: contain; /* Đảm bảo hình ảnh không bị méo */
 }
 
 .topbarCenter {

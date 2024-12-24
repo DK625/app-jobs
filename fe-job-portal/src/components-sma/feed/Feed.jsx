@@ -7,9 +7,11 @@ export default function Feed({posts}) {
     <div className="feed">
       <div className="feedWrapper">
         <Share />
-        {posts.map((p) => (
+       <div className="wrapperFeed">
+       {posts.map((p) => (
           <Post key={p.id} post={p} />
         ))}
+       </div>
       </div>
     </div>
   );
