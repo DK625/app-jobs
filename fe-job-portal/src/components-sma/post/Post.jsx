@@ -41,8 +41,9 @@ export default function Post({ post }) {
   };
 
   return (
+    console.log('post: ', post),
     <div className="post">
-      <div className="postWrapper">
+      <div className="postWrapper"> 
         <div className="postTop">
           <div className="postTopLeft">
             <div className="avatarContainer">

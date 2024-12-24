@@ -37,7 +37,7 @@ function Home() {
         // console.log(candidateRes.data.info);
         setPosts(postsRes.data.data)
         console.log(postsRes.data.data);
-
+        
         // dispatch(
         //   setCandidateInfo({
         //     uid: candidateRes.data.info._id,

@@ -43,6 +43,7 @@ import SearchJob from "./components/Candidate/Search/SearchJob";
 import { themes } from "./helper";
 import UpdateCandidateInfo from "./pages/CVManagement/UpdateCandidateInfo";
 import Error404 from "./pages/Error/Error404";
+import ProfileUser from "./pages/ProfileUser/ProfileUser";
 
 // import JobDetail from "./components/Employer/Job-Detail/Job-Detail";
 
@@ -69,7 +70,7 @@ function App() {
           <Route path="/employer/index" element={<EmployeerIndex />} />
           <Route path="/candidate/sign-up" element={<CandidateSignUp />} />
           <Route path="/company/company-profile" element={<CompanyProfile />} />
-          
+          <Route path="/profile" element={<ProfileUser />} />
           <Route path="/" element={<Home />}>
             <Route index element={<SearchJob />} />
             <Route path="view-detail-job/:jobId" element={<ViewDetailJob />}/>
