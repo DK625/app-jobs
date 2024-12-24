@@ -19,4 +19,9 @@ router.get("/get-list", getListPosts)
 router.get("/get-id/:id", getPostsById)
 router.get("/get-comment/:id", getListCommentByPostId)
 
+router.post("/save/:id", PostsController.savePost);
+router.delete("/unsave/:id", PostsController.unsavePost);
+router.get("/saved/:user_id", PostsController.getSavedPosts);
+
+
 module.exports = router;
