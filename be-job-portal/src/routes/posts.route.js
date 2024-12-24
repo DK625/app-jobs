@@ -22,6 +22,10 @@ router.get("/get-comment/:id", getListCommentByPostId)
 router.post("/save/:id", PostsController.savePost);
 router.delete("/unsave/:id", PostsController.unsavePost);
 router.get("/saved/:user_id", PostsController.getSavedPosts);
+router.post('/like/:id', PostsController.toggleLike);
+router.get('/likes/:id', PostsController.getLikes);
+
+router.get("/user/:user_id", PostsController.getPostsByUserId);
 
 
 module.exports = router;

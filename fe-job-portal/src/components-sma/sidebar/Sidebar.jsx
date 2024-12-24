@@ -11,8 +11,10 @@ import {
 } from "@mui/icons-material";
 import { Users } from "../../dummyData";
 import CloseFriend from "../closeFriend/CloseFriend";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -25,7 +27,11 @@ export default function Sidebar() {
             <Chat className="sidebarIcon" />
             <span className="sidebarListItemText">Đoạn chat</span>
           </li>
-          <li className="sidebarListItem">
+          <li
+            className="sidebarListItem"
+            onClick={() => navigate('/saved-post')} // Thêm onClick handler
+            style={{ cursor: 'pointer' }} // Thêm style để hiển thị là có thể click
+          >
             <Bookmark className="sidebarIcon" />
             <span className="sidebarListItemText">Đã lưu</span>
           </li>

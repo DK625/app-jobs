@@ -21,6 +21,7 @@ class PostsController {
                 .limit(limit)
                 .populate("author_id", "fullName avatar _id")
                 .populate("job_id")
+                .populate('likes', 'fullName avatar _id')
                 .populate({
                     path: "original_post_id",
                     populate: {path: "author_id", select: "fullName avatar _id"},
@@ -385,6 +386,105 @@ class PostsController {
         } catch (error) {
             console.log(error);
             return response(res, 500, {message: 'Error from server'});
+        }
+    }
+
+    // API like/unlike post
+    async toggleLike(req, res) {
+        try {
+            const {user_id} = req.body;
+            const post_id = req.params.id;
+
+            const post = await Post.findById(post_id);
+            if (!post) {
+                return response(res, 404, {message: 'Post not found'});
+            }
+
+            const hasLiked = post.likes.includes(user_id);
+
+            if (hasLiked) {
+                // Unlike: Remove user from likes array
+                post.likes = post.likes.filter(id => id.toString() !== user_id);
+            } else {
+                // Like: Add user to likes array
+                post.likes.push(user_id);
+            }
+
+            await post.save();
+
+            return response(res, 200, {
+                message: hasLiked ? 'Post unliked' : 'Post liked',
+            });
+
+        } catch (error) {
+            console.log(error);
+            return response(res, 500, {message: 'Error from server'});
+        }
+    }
+
+// API lấy danh sách người like
+    async getLikes(req, res) {
+        try {
+            const {id} = req.params;
+            const {page = 1, limit = 10} = req.query;
+            const skip = (page - 1) * limit;
+
+            const post = await Post.findById(id)
+                .populate({
+                    path: 'likes',
+                    select: 'fullName avatar _id',
+                    options: {skip, limit}
+                });
+
+            if (!post) {
+                return response(res, 404, {message: 'Post not found'});
+            }
+
+            return response(res, 200, {
+                total_likes: post.likes_count,
+                users: post.likes
+            });
+
+        } catch (error) {
+            console.log(error);
+            return response(res, 500, {message: 'Error from server'});
+        }
+    }
+
+    // API lấy danh sách bài post theo user_id
+    async getPostsByUserId(req, res) {
+        try {
+            const {user_id} = req.params;
+            const {page = 1, limit = 10} = req.query;
+            const skip = (page - 1) * limit;
+
+            const posts = await Post.find({author_id: user_id})
+                .sort({createdAt: -1})
+                .skip(skip)
+                .limit(limit)
+                .populate("author_id", "fullName avatar _id")
+                .populate("job_id")
+                .populate('likes', 'fullName avatar _id')
+                .populate({
+                    path: "original_post_id",
+                    populate: {path: "author_id", select: "fullName avatar _id"},
+                })
+                .exec();
+
+            const totalPosts = await Post.countDocuments({author_id: user_id});
+            const totalPages = Math.ceil(totalPosts / limit);
+
+            const result = {
+                currentPage: parseInt(page),
+                totalPages,
+                totalPosts,
+                data: posts
+            };
+
+            return response(res, 200, result);
+        } catch (error) {
+            console.log(error);
+            return response(res, 500, {message: "Error from server"});
         }
     }
 

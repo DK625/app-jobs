@@ -43,88 +43,88 @@
   cursor: pointer;
 }
 
-.postDate{
-    font-size: 12px;
-    margin: 2px 10px 0px;
-    cursor: pointer;
+.postDate {
+  font-size: 12px;
+  margin: 2px 10px 0px;
+  cursor: pointer;
 }
 
 .postTopRight {
   cursor: pointer;
 }
 
-.postCenter{
-    margin: 10px 0;
-    height: auto;
+.postCenter {
+  margin: 10px 0;
+  height: auto;
 }
 
-.postText{
-    white-space: pre-line;
+.postText {
+  white-space: pre-line;
 }
 
 .postText:empty {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-.postCenterImg{
-    display: flex;
-    justify-content: center;
-    background-color: rgb(235, 234, 234);
-    background-size: cover;
+.postCenterImg {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(235, 234, 234);
+  background-size: cover;
 }
 
-.postImg{
-    align-items: center;
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
+.postImg {
+  align-items: center;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
 }
 
-.postBottomApply{
+.postBottomApply {
   display: flex;
   justify-content: center;
 }
 
-.postBottom1{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.postBottom1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.postBottomHr{
-    margin-top: 6px;
-    margin-bottom: 6px;
-    opacity: 50%;
+.postBottomHr {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  opacity: 50%;
 }
 
-.postBottomLeft{
-    display: flex;
-    align-items: center;   
+.postBottomLeft {
+  display: flex;
+  align-items: center;
 }
 
-.likeIcon{
-    width: 24px;
-    height: 24px;
-    margin-right: 3px;
-    cursor: pointer;
+.likeIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 3px;
+  cursor: pointer;
 }
 
-.postLikeCounter{
-    font-size: 15px;
+.postLikeCounter {
+  font-size: 15px;
 }
 
-.postCommentText{
-    cursor: pointer;
-    font-size: 15px;
+.postCommentText {
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.postBottomButtons{
+.postBottomButtons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-.button{
+.button {
   flex: 1;
   display: flex;
   height: 32px;
@@ -142,41 +142,101 @@
   color: white;
 }
 
-.buttonText{
-    margin-left: 5px;
-    line-height: 48px;
-}
-
-.buttonTextApply{
+.buttonText {
   margin-left: 5px;
   line-height: 48px;
 }
+
+.buttonTextApply {
+  margin-left: 5px;
+  line-height: 48px;
+}
+
 .avatarContainer {
-  width: 40px; /* Kích thước avatar */
+  width: 40px;
+  /* Kích thước avatar */
   height: 40px;
-  border-radius: 50%; /* Làm tròn hoàn toàn */
-  background: linear-gradient(135deg, #7effa9, #75ffca, #5fff9c); /* Hiệu ứng gradient */
-  display: flex; /* Căn giữa nội dung */
+  border-radius: 50%;
+  /* Làm tròn hoàn toàn */
+  background: linear-gradient(135deg, #7effa9, #75ffca, #5fff9c);
+  /* Hiệu ứng gradient */
+  display: flex;
+  /* Căn giữa nội dung */
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng */
-  overflow: hidden; /* Ẩn nội dung vượt ra ngoài */
-  transition: transform 0.3s ease; /* Hiệu ứng hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Hiệu ứng đổ bóng */
+  overflow: hidden;
+  /* Ẩn nội dung vượt ra ngoài */
+  transition: transform 0.3s ease;
+  /* Hiệu ứng hover */
 }
 
 .avatarContainer:hover {
-  transform: scale(1.1); /* Phóng to nhẹ khi hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn khi hover */
+  transform: scale(1.1);
+  /* Phóng to nhẹ khi hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  /* Đổ bóng mạnh hơn khi hover */
 }
 
 .avatarIcon {
-  font-size: 20px; /* Kích thước icon */
-  color: #fff; /* Màu icon trắng nổi bật */
+  font-size: 20px;
+  /* Kích thước icon */
+  color: #fff;
+  /* Màu icon trắng nổi bật */
 }
 
 .postUsername {
-  margin-left: 16px; /* Khoảng cách giữa avatar và tên */
-  font-size: 18px; /* Kích thước chữ */
-  font-weight: bold; /* Đậm chữ */
-  color: #1c1e21; /* Màu chữ gần giống Facebook */
+  margin-left: 16px;
+  /* Khoảng cách giữa avatar và tên */
+  font-size: 18px;
+  /* Kích thước chữ */
+  font-weight: bold;
+  /* Đậm chữ */
+  color: #1c1e21;
+  /* Màu chữ gần giống Facebook */
+}
+
+/* post.css */
+.ant-alert {
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ant-alert-success {
+  background-color: #f6ffed;
+  border-color: #b7eb8f;
+}
+
+.ant-alert-error {
+  background-color: #fff2f0;
+  border-color: #ffccc7;
+}
+
+.comments-section {
+  padding: 10px 0;
+}
+
+.comment {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.new-comment {
+  margin-top: 10px;
+}
+
+.new-comment button {
+  margin-top: 5px;
+  padding: 5px 15px;
+  background-color: #1677ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.new-comment button:hover {
+  background-color: #4096ff;
 }

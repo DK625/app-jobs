@@ -21,7 +21,10 @@ const PostSchema = new Schema(
             ref: 'Job',
             default: null  // Có thể null nếu post không liên quan đến job
         },
-
+        likes: [{  // Thêm array chứa user_id đã like
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Member'
+        }],
         is_shared: {
             type: Boolean,
             default: false
