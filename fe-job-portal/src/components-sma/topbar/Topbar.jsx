@@ -19,7 +19,7 @@ export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">Fakebook</span>
+        <span className="logo"><img src="/logo.png" alt="" /></span>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
