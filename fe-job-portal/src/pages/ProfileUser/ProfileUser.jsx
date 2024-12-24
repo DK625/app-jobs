@@ -6,31 +6,18 @@ import styles from "./ProfileUser.css";
 
 function ProfileUser() {
   const [posts, setPosts] = useState([]);
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : {};
+  });
 
-  useEffect(() => {
-    // Lấy thông tin người dùng
-    axios
-      .get("http://localhost:8000/api/candidate/info", { withCredentials: true })
-      .then((response) => {
-        if (response.data && response.data.info) {
-          console.log(response.data.info)
-          setUser(response.data.info);
-        }
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Lỗi khi gọi API thông tin người dùng", error);
-        setLoading(false);
-      });
-  }, []);  // Chỉ gọi một lần khi component được mount
+
 
   // Gọi API bài viết chỉ khi user._id đã có giá trị
   useEffect(() => {
-    if (user._id) {
+    if (user.id) {
       axios
-        .get(`http://localhost:8000/api/posts/user/${user._id}`, { withCredentials: true })
+        .get(`http://localhost:8000/api/posts/user/${user.id}`, { withCredentials: true })
         .then((response) => {
           if (response.data && response.data.data) {
             setPosts(response.data.data);
@@ -38,37 +25,34 @@ function ProfileUser() {
         })
         .catch((error) => {
           console.error("Lỗi khi gọi API bài viết", error);
-          setLoading(false);
         });
     }
-  }, [user._id]);  
+  }, [user._id]);
 
-  if (loading) {
-    return <div>Loading...</div>; 
-  }
 
   return (
+    console.log('posts: ', posts),
     <div className="profile">
       <Topbar />
       <div className="bigAvatar">
         <div className="info">
           <div className="avatar">
-            <img src={user.member?.avatar} alt="avatar" />
+            <img src={user?.avatar} alt="avatar" />
           </div>
           <div className="infoText">
-            <h1 className="name">{user.member?.fullName || "Tên không có"}</h1>
+            <h1 className="name">{user?.fullName || "Tên không có"}</h1>
           </div>
         </div>
       </div>
       <div className="content">
         <div className="box-1">
-          <Feed posts={posts} /> 
+          <Feed posts={posts} />
         </div>
         <div className="box-2">
           <h2>Thông tin người dùng</h2>
           <ul>
-            <li>Thành phố: {user.member?.address || "Chưa cập nhật"}</li>
-            <li>Quê quán: {user.member?.address || "Chưa cập nhật"}</li>
+            <li>Thành phố: {user?.address || "Chưa cập nhật"}</li>
+            <li>Quê quán: {user?.address || "Chưa cập nhật"}</li>
             <li>Công việc hiện tại: {user.company || "Chưa cập nhật"}</li>
           </ul>
           <h2>Bạn bè</h2>

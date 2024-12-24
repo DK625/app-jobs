@@ -14,7 +14,10 @@ import { useSelector } from 'react-redux';
 import { Alert, Button } from 'antd';
 
 function SavedPost() {
-    const user = useSelector(state => state.memberReducer); // Giả sử reducer tên là user
+    const [user, setUser] = useState(() => {
+        const savedUser = localStorage.getItem('user');
+        return savedUser ? JSON.parse(savedUser) : {};
+    });
     const userId = user.id;
     const nav = useNavigate();
     const dispatch = useDispatch();

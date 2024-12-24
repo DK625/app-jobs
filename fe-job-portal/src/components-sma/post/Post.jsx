@@ -17,7 +17,10 @@ import { useEffect, useState } from "react";
 
 export default function Post({ post, refreshPosts }) {
   const navigate = useNavigate();
-  const user = useSelector(state => state.memberReducer);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : {};
+  });
 
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');

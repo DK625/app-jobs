@@ -28,7 +28,7 @@ function Home() {
     },
   ];
   useEffect(() => {
-    
+
     Promise.all([
       // axios.get("http://localhost:8000/api/candidate/get-list/", { withCredentials: true }),
       axios.get("http://localhost:8000/api/posts/get-list/", { withCredentials: true })
@@ -37,7 +37,7 @@ function Home() {
         // console.log(candidateRes.data.info);
         setPosts(postsRes.data.data)
         console.log(postsRes.data.data);
-        
+
         // dispatch(
         //   setCandidateInfo({
         //     uid: candidateRes.data.info._id,
@@ -45,8 +45,8 @@ function Home() {
         //   })
         // );
 
-       
-        console.log(postsRes.data);  
+
+        console.log(postsRes.data);
       })
       .catch((error) => {
         console.log(error);
@@ -76,7 +76,7 @@ function Home() {
           <Sidebar />
         </div>
         <div className="homeFeed">
-          <Feed posts={posts}/>
+          <Feed posts={posts} />
         </div>
         <div className="homeRightbar">
           <Rightbar />

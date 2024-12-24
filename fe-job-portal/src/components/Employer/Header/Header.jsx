@@ -95,7 +95,8 @@ function Header({ collapsed, setCollapsed, employer }) {
     {
       key: "2",
       label: <span className={styles.lbMenu}>Company Profile</span>,
-      nav: "/employer/company-profile",
+      // nav: "/employer/company-profile",
+      nav: "/profile",
       icon: <ImProfile />
     },
     // {
@@ -143,7 +144,7 @@ function Header({ collapsed, setCollapsed, employer }) {
               // setSelectedKeys([item.item.props.key]);
               nav(item.item.props.nav);
             }}
-            // selectedKeys={selectedKeys}
+          // selectedKeys={selectedKeys}
           />
         </ConfigProvider>
       </div>

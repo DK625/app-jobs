@@ -40,11 +40,11 @@ export default function Sidebar() {
         <button className="sidebarButton">Xem thêm</button>
         */}
         <hr className="sidebarHr" />
-        <ul className="sidebarFriendList">
+        {/* <ul className="sidebarFriendList">
           {Users.slice(0, 8).map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

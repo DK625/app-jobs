@@ -10,7 +10,10 @@ export default function Share() {
   const [content, setContent] = useState("");
   const [jobId, setJobId] = useState(""); // State cho job ID
   const [messageApi, contextHolder] = message.useMessage();
-  const user = useSelector(state => state.memberReducer);
+  const [user, setUser] = useState(() => {
+    const savedUser = localStorage.getItem('user');
+    return savedUser ? JSON.parse(savedUser) : {};
+  });
   const handleSubmit = async () => {
     if (!content.trim()) {
       messageApi.warning("Vui lòng nhập nội dung bài viết!");
