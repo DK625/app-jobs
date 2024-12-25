@@ -94,9 +94,9 @@ function Header({ collapsed, setCollapsed, employer }) {
     },
     {
       key: "2",
-      label: <span className={styles.lbMenu}>Company Profile</span>,
-      // nav: "/employer/company-profile",
-      nav: "/profile",
+      label: <span className={styles.lbMenu}>Company</span>,
+      nav: "/employer/company-profile",
+      // nav: "/profile",
       icon: <ImProfile />
     },
     // {
@@ -106,11 +106,17 @@ function Header({ collapsed, setCollapsed, employer }) {
     //   icon: <RiUserSearchFill />
     // },
     {
-      key: "4",
-      label: <span className={styles.lbMenu}>Chat</span>,
-      nav: "/employer/chat",
+      key: "3",
+      label: <span className={styles.lbMenu}>Profile</span>,
+      nav: "/profile",
       icon: <IoMdChatbubbles />
     },
+    // {
+    //   key: "4",
+    //   label: <span className={styles.lbMenu}>Chat</span>,
+    //   nav: "/employer/chat",
+    //   icon: <IoMdChatbubbles />
+    // },
   ];
 
   return (
