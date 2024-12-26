@@ -39,7 +39,7 @@ function ProfileUser() {
   const handleUpdateInfo = async (values) => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/candidate/info`,
+        `http://localhost:8000/api/${user.role}/info`,
         {
           ...values,
           dob: values.dob?.format('YYYY-MM-DD'),
